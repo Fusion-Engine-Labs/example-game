@@ -1,12 +1,11 @@
 {
   "format": "zephyr.scene",
-  "version": 1,
+  "version": 2,
   "scene_id": "28b4579e-c3ef-4fe6-ad95-74f30688f7ec",
   "project_id": "bf5a424f-e93e-4977-9a7a-0c522318dfdc",
   "name": "Multi Mesh",
   "schema_hash": 745135055453592279,
   "asset_manifest_hash": 0,
-  "active_camera": "64b8f9c6-91b6-4da2-a0fb-d38b90be3744",
   "entities": [
     {
       "id": "64b8f9c6-91b6-4da2-a0fb-d38b90be3744",
@@ -35,7 +34,7 @@
           "fields": []
         },
         {
-          "type_id": "8c1f2a70-3d5e-4b91-8f42-1a6b9c0d3e02",
+          "type_id": "32ccdb02-85b1-4a9e-9db4-4034dc5679bf",
           "version": 1,
           "fields": []
         }

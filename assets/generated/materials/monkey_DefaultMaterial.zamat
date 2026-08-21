@@ -1,6 +1,6 @@
 # Auto-generated from meshes/monkey.obj - DefaultMaterial
 [material]
-shader = "shaders/basic"
+shader = "shaders/rainbow"
 
 [render_state]
 alpha_mode = "solid"
