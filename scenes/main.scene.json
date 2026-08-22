@@ -19,11 +19,7 @@
               "number": 1,
               "value": {
                 "kind": "vec3",
-                "value": [
-                  0,
-                  0,
-                  3
-                ]
+                "value": [0, 0, 3]
               }
             }
           ]
@@ -52,11 +48,7 @@
               "number": 1,
               "value": {
                 "kind": "vec3",
-                "value": [
-                  0,
-                  0,
-                  0
-                ]
+                "value": [0, 0, 0]
               }
             }
           ]

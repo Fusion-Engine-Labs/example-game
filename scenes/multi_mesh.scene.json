@@ -19,11 +19,7 @@
               "number": 1,
               "value": {
                 "kind": "vec3",
-                "value": [
-                  0,
-                  0,
-                  4
-                ]
+                "value": [0, 0, 4]
               }
             }
           ]
