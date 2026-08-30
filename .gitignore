@@ -4,3 +4,5 @@ zig-pkg/
 
 .zephyr/assets.zmanifest
 .zephyr/.zcache
+
+assets/generated
