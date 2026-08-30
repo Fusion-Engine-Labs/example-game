@@ -1,6 +1,6 @@
 # Hand-authored showcase override: textured opaque wood/brick surface.
 [material]
-shader = "shaders/basic"
+shader = "zephyr/standard"
 
 [render_state]
 alpha_mode = "solid"
@@ -11,11 +11,8 @@ depth_test = true
 depth_write = true
 blend_mode = "disabled"
 
-[texture.albedo]
+[texture.u_albedo]
 path = "textures/brick_albedo.jpg"
-resource = "u_albedo"
-set = 0
-binding = 0
 uv_set = 0
 uv_offset = [0, 0]
 uv_scale = [1, 1]
@@ -27,27 +24,9 @@ wrap_s = "repeat"
 wrap_t = "repeat"
 max_anisotropy = 1
 
-[param.u_base_color]
-value = [0.72, 0.48, 0.28, 1]
-set = 1
-binding = 0
-
-[param.u_metallic]
-value = 0.0
-set = 1
-binding = 1
-
-[param.u_roughness]
-value = 0.88
-set = 1
-binding = 2
-
-[param.u_emissive]
-value = [0, 0, 0]
-set = 1
-binding = 3
-
-[param.u_uv_scale]
-value = [2.5, 1.0]
-set = 1
-binding = 4
+[params]
+u_base_color = [0.72, 0.48, 0.28, 1]
+u_metallic = 0.0
+u_roughness = 0.88
+u_emissive = [0, 0, 0]
+u_uv_scale = [2.5, 1.0]

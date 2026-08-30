@@ -1,6 +1,6 @@
 # Auto-generated from meshes/monkey.obj - DefaultMaterial
 [material]
-shader = "shaders/rainbow"
+shader = "zephyr/standard"
 
 [render_state]
 alpha_mode = "solid"
@@ -11,22 +11,8 @@ depth_test = true
 depth_write = true
 blend_mode = "disabled"
 
-[param.u_base_color]
-value = [1, 1, 1, 1]
-set = 1
-binding = 0
-
-[param.u_metallic]
-value = 1.000000
-set = 1
-binding = 1
-
-[param.u_roughness]
-value = 1.000000
-set = 1
-binding = 2
-
-[param.u_emissive]
-value = [0, 0, 0]
-set = 1
-binding = 3
+[params]
+u_base_color = [1, 1, 1, 1]
+u_metallic = 1.000000
+u_roughness = 1.000000
+u_emissive = [0, 0, 0]

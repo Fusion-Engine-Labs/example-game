@@ -1,0 +1,78 @@
+# Auto-generated from meshes/scene.gltf - Scene_-_Root
+[material]
+shader = "zephyr/standard"
+
+[render_state]
+alpha_mode = "solid"
+alpha_cutoff = 0.5
+double_sided = true
+cull_mode = "none"
+depth_test = true
+depth_write = true
+blend_mode = "disabled"
+
+[texture.u_albedo]
+path = "textures/Scene_-_Root_baseColor.jpeg"
+uv_set = 0
+uv_offset = [0, 0]
+uv_scale = [1, 1]
+uv_rotation = 0
+min_filter = "linear"
+mag_filter = "linear"
+mip_filter = "linear"
+wrap_s = "repeat"
+wrap_t = "repeat"
+max_anisotropy = 1
+normal_scale = 1
+occlusion_strength = 1
+
+[texture.u_roughness_metallic_map]
+path = "textures/Scene_-_Root_metallicRoughness.png"
+uv_set = 0
+uv_offset = [0, 0]
+uv_scale = [1, 1]
+uv_rotation = 0
+min_filter = "linear"
+mag_filter = "linear"
+mip_filter = "linear"
+wrap_s = "repeat"
+wrap_t = "repeat"
+max_anisotropy = 1
+normal_scale = 1
+occlusion_strength = 1
+
+[texture.u_normal_map]
+path = "textures/Scene_-_Root_normal.png"
+uv_set = 0
+uv_offset = [0, 0]
+uv_scale = [1, 1]
+uv_rotation = 0
+min_filter = "linear"
+mag_filter = "linear"
+mip_filter = "linear"
+wrap_s = "repeat"
+wrap_t = "repeat"
+max_anisotropy = 1
+normal_scale = 1
+occlusion_strength = 1
+
+[texture.u_ao_map]
+path = "textures/Scene_-_Root_metallicRoughness.png"
+uv_set = 0
+uv_offset = [0, 0]
+uv_scale = [1, 1]
+uv_rotation = 0
+min_filter = "linear"
+mag_filter = "linear"
+mip_filter = "linear"
+wrap_s = "repeat"
+wrap_t = "repeat"
+max_anisotropy = 1
+normal_scale = 1
+occlusion_strength = 1
+
+[params]
+u_base_color = [1, 1, 1, 1]
+u_metallic = 1.000000
+u_roughness = 1.000000
+u_emissive = [0, 0, 0]
