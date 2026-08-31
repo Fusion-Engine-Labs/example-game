@@ -29,4 +29,3 @@ u_base_color = [0.75, 1, 1, 0.64]
 u_metallic = 0.0
 u_roughness = 0.2
 u_emissive = [0.03, 0.16, 0.20]
-u_uv_scale = [1, 1]

@@ -4,5 +4,6 @@ zig-pkg/
 
 .zephyr/assets.zmanifest
 .zephyr/.zcache
+.zephyr/cooked/
 
 assets/generated

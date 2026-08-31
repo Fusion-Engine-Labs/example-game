@@ -6,10 +6,10 @@ alpha_mode = "solid"
 
 [texture.u_albedo]
 path = "textures/brick_albedo.jpg"
+uv_scale = [8.0, 8.0]
 
 [params]
 u_base_color = [1.0, 1.0, 1.0, 1.0]
-u_uv_scale = [8.0, 8.0]
 u_metallic = 0.0
 u_roughness = 0.65
 u_emissive = [0.0, 0.0, 0.0]
