@@ -15,6 +15,7 @@
         "version": 1,
         "fields": [
           {"number": 1, "value": {"kind": "vec3", "value": [0,2.1,0.65]}},
+          {"number": 2, "value": {"kind": "quat", "value": [0,0,0,1]}},
           {"number": 3, "value": {"kind": "vec3", "value": [0.012,0.012,0.012]}}
         ]
       },
@@ -22,7 +23,7 @@
         "type_id": "7fb84f38-52b6-4fd9-8c2f-fbd08c7a9002",
         "version": 1,
         "fields": [
-          {"number": 1, "value": {"kind": "asset_ref", "value": "ffd88ca9-ccdd-4763-83ff-d45de5481c95"}}
+          {"number": 1, "value": {"kind": "asset_ref", "value": "5314a9d7-6355-8f50-8db6-753f5707eac6"}}
         ]
       },
       {
@@ -54,7 +55,7 @@
         ]
       }]
   },  {
-    "id": "ec9413d7-4004-4a24-b63c-e55426ce45b5",
+    "id": "9b52f87d-b13c-4b82-98c2-7ff136bae1fd",
     "name": "Trailhead Renderer Showcase",
     "components": [
       {
@@ -66,7 +67,7 @@
         "type_id": "7fb84f38-52b6-4fd9-8c2f-fbd08c7a9002",
         "version": 1,
         "fields": [
-          {"number": 1, "value": {"kind": "asset_ref", "value": "d3d1eef8-bb9c-40e0-adc2-13c55ca940c4"}}
+          {"number": 1, "value": {"kind": "asset_ref", "value": "611c2f94-4e5f-8a48-9533-951ed93ddda7"}}
         ]
       },
       {
