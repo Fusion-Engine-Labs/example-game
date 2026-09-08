@@ -2,8 +2,8 @@
 .zig-out
 zig-pkg/
 
-.zephyr/assets.zmanifest
-.zephyr/.zcache
-.zephyr/cooked/
+.fusion/assets.zmanifest
+.fusion/.zcache
+.fusion/cooked/
 
 assets/generated
