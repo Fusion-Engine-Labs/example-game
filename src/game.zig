@@ -4,7 +4,7 @@ const std = @import("std");
 const components = @import("game_components.zig");
 const systems = @import("game_systems.zig");
 
-fn registerComponents(world: *fusion.World) bool {
+fn registerComponents(world: *fusion.World) callconv(.c) bool {
     fusion.World.registerGameComponenets(
         &world.world,
         world.schemas,
@@ -18,7 +18,7 @@ fn registerComponents(world: *fusion.World) bool {
     return true;
 }
 
-fn fixedUpdate(world: *fusion.EcsWorld, commands: *fusion.CommandBuffer) bool {
+fn fixedUpdate(world: *fusion.EcsWorld, commands: *fusion.CommandBuffer) callconv(.c) bool {
     systems.keyboardMovementSystem(world, commands) catch |err| {
         std.debug.print("sandbox fixed update failed: {s}\n", .{@errorName(err)});
         return false;
