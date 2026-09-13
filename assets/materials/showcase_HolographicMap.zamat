@@ -1,6 +1,6 @@
 # BLEND material: exercises transparency, disabled depth writes, and emissive tint.
 [material]
-shader = "zephyr/standard"
+shader = "fusion/standard"
 
 [render_state]
 alpha_mode = "alpha_blend"

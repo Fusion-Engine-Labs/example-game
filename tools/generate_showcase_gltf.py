@@ -185,7 +185,7 @@ materials = [
 ]
 
 gltf = {
-    "asset": {"version": "2.0", "generator": "Zephyr backpack showcase generator"},
+    "asset": {"version": "2.0", "generator": "fusion backpack showcase generator"},
     "scene": 0,
     "scenes": [{"nodes": [0, 1, 2, 3, 4, 5]}],
     "nodes": [

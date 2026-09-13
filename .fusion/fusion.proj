@@ -1,11 +1,11 @@
 {
-  "format": "zephyr.proj",
+  "format": "fusion.proj",
   "version": 1,
-  "name": "Zephyr Game Example",
+  "name": "Fusion Game Example",
   "project_id": "bf5a424f-e93e-4977-9a7a-0c522318dfdc",
   "assets_dir": "assets",
   "scenes_dir": "scenes",
-  "generated_dir": ".zephyr",
-  "cooked_assets_dir": ".zephyr/cooked",
+  "generated_dir": ".fusion",
+  "cooked_assets_dir": ".fusion/cooked",
   "default_scene": "scenes/backpack.scene.json"
 }

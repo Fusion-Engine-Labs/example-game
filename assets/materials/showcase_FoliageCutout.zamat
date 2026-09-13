@@ -1,6 +1,6 @@
 # MASK material: exercises alpha testing and double-sided rendering.
 [material]
-shader = "zephyr/standard"
+shader = "fusion/standard"
 
 [render_state]
 alpha_mode = "alpha_test"

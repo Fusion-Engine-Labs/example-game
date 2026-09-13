@@ -1,6 +1,6 @@
 # Hand-authored showcase override: textured opaque wood/brick surface.
 [material]
-shader = "zephyr/standard"
+shader = "fusion/standard"
 
 [render_state]
 alpha_mode = "solid"
