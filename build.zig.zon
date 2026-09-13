@@ -1,0 +1,18 @@
+.{
+    .name = .sandbox_game,
+    .version = "0.0.1",
+    .minimum_zig_version = "0.16.0",
+    .dependencies = .{
+        .fusion_runtime = .{
+            .path = "../fusion-runtime",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+        "LICENSE",
+        "README.md",
+    },
+    .fingerprint = 0xc7979a145a624d47,
+}
