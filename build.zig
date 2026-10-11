@@ -4,7 +4,7 @@ pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
-    const runtime = b.dependency("fusion_runtime", .{
+    const sdk = b.dependency("fusion_sdk", .{
         .target = target,
         .optimize = optimize,
     });
@@ -16,8 +16,8 @@ pub fn build(b: *std.Build) void {
         .pic = true,
         .imports = &.{
             .{
-                .name = "fusion_runtime",
-                .module = runtime.module("fusion_runtime"),
+                .name = "fusion_sdk",
+                .module = sdk.module("fusion_sdk"),
             },
         },
     });

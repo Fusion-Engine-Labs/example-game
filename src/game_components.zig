@@ -1,4 +1,4 @@
-const scene = @import("fusion_runtime").scene_schema;
+const scene = @import("fusion_sdk").scene_schema;
 
 pub const KeyboardMovementComponent = struct {
     speed: f32 = 2.5,
