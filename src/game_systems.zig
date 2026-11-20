@@ -4,6 +4,9 @@ const game_components = @import("game_components.zig");
 const fusion = @import("fusion_sdk");
 
 const KeyboardMovementComponent = game_components.KeyboardMovementComponent;
+const ProjectileLauncherComponent = game_components.ProjectileLauncherComponent;
+const ProjectileComponent = game_components.ProjectileComponent;
+const MeshRenderComponent = fusion.components.MeshRenderComponent;
 const TransformComponent = fusion.components.TransformComponent;
 const Vec3 = fusion.Vec3;
 
@@ -48,12 +51,69 @@ fn keyboardDirection(input: *const fusion.Frame) Vec3 {
     return direction;
 }
 
+pub fn update(world: fusion.World, frame: *const fusion.Frame) !void {
+    try keyboardMovementSystem(world, frame);
+    try launchProjectilesSystem(world, frame);
+    try projectileSystem(world, frame);
+}
+
+/// Spawns one projectile per launcher on the step Space goes down.
+pub fn launchProjectilesSystem(world: fusion.World, frame: *const fusion.Frame) !void {
+    if (!frame.wasKeyPressed(.Space)) {
+        return;
+    }
+
+    var launchers = try world.query(.{
+        .read = &.{ TransformComponent, MeshRenderComponent, ProjectileLauncherComponent },
+    });
+
+    while (try launchers.each()) |row| {
+        const transform = try row.read(TransformComponent);
+        const mesh = try row.read(MeshRenderComponent);
+        const launcher = try row.read(ProjectileLauncherComponent);
+
+        _ = try world.spawn(.{
+            TransformComponent{
+                .position = transform.position,
+                .rotation = transform.rotation,
+                .scale = transform.scale.scale(launcher.scale),
+            },
+            MeshRenderComponent{ .mesh = mesh.mesh },
+            ProjectileComponent{
+                .velocity = transform.forward().scale(launcher.speed),
+                .remaining = launcher.lifetime,
+            },
+        });
+    }
+}
+
+/// Moves projectiles and removes each one when its lifetime runs out.
+pub fn projectileSystem(world: fusion.World, frame: *const fusion.Frame) !void {
+    var projectiles = try world.query(.{
+        .write = &.{ TransformComponent, ProjectileComponent },
+    });
+
+    while (try projectiles.each()) |row| {
+        var projectile = try row.read(ProjectileComponent);
+        projectile.remaining -= frame.seconds;
+        if (projectile.remaining <= 0) {
+            try row.despawn();
+            continue;
+        }
+        try row.write(ProjectileComponent, projectile);
+
+        var transform = try row.read(TransformComponent);
+        transform.position = transform.position.add(projectile.velocity.scale(frame.seconds));
+        try row.write(TransformComponent, transform);
+    }
+}
+
 const testing = std.testing;
 
 fn inputWithKeysDown(keys: []const fusion.Key) fusion.Frame {
     var input: fusion.Frame = .{};
     for (keys) |key| {
-        input.keys[@intFromEnum(key)] = 1;
+        input.keys[@backingInt(key)] = 1;
     }
     return input;
 }

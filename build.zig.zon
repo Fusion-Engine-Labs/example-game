@@ -4,8 +4,8 @@
     .minimum_zig_version = "0.17.0",
     .dependencies = .{
         .fusion_sdk = .{
-            .url = "git+https://github.com/Fusion-Engine-Labs/fusion-sdk.git#e7311847a91536d10c47c52f150f4cb56076fc01",
-            .hash = "fusion_sdk-0.0.0-tQKBDrgeAQCP_SN2sKcjLpTQwJKudIBE8Giw4PFasBeT",
+            .url = "git+https://github.com/Fusion-Engine-Labs/fusion-sdk.git#d6a7f56956e490dbc48308c76e953bf5e837f6ae",
+            .hash = "fusion_sdk-0.0.0-tQKBDmtrAQBO-A-sJGHVAGrrOf2oqRe4rNDfV0ENSOxo",
         },
     },
     .paths = .{
