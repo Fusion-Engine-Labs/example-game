@@ -1,0 +1,17 @@
+# hit_marker: HitMarker. Written by tools/generate_arena.py.
+[material]
+shader = "fusion/standard"
+
+[render_state]
+alpha_mode = "alpha_blend"
+double_sided = true
+cull_mode = "none"
+depth_test = false
+depth_write = false
+blend_mode = "alpha"
+
+[params]
+u_base_color = [0.0000, 0.0000, 0.0000, 0.9500]
+u_metallic = 0.0000
+u_roughness = 1.0000
+u_emissive = [4.0000, 1.2000, 0.5000]

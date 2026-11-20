@@ -7,6 +7,6 @@
   "scenes_dir": "scenes",
   "generated_dir": ".fusion",
   "cooked_assets_dir": ".fusion/cooked",
-  "default_scene": "scenes/backpack.scene.json",
+  "default_scene": "scenes/arena.scene.json",
   "game_library": "zig-out/lib/libsandbox-game.so"
 }

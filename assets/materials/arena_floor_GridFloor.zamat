@@ -1,0 +1,21 @@
+# arena_floor: GridFloor. Written by tools/generate_arena.py.
+[material]
+shader = "fusion/standard"
+
+[render_state]
+alpha_mode = "solid"
+double_sided = false
+cull_mode = "back"
+
+[texture.u_albedo]
+path = "textures/arena_grid.png"
+mip_filter = "linear"
+wrap_s = "repeat"
+wrap_t = "repeat"
+max_anisotropy = 8
+
+[params]
+u_base_color = [0.3000, 0.3400, 0.4000, 1.0000]
+u_metallic = 0.0000
+u_roughness = 0.9000
+u_emissive = [0.0000, 0.0000, 0.0000]

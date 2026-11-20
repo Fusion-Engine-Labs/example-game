@@ -1,7 +1,11 @@
 const std = @import("std");
 
-const game_components = @import("game_components.zig");
+const collision = @import("collision.zig");
+const combat = @import("combat.zig");
+const first_person = @import("first_person.zig");
 const fusion = @import("fusion_sdk");
+const game_components = @import("game_components.zig");
+const view_model = @import("view_model.zig");
 
 const KeyboardMovementComponent = game_components.KeyboardMovementComponent;
 const ProjectileLauncherComponent = game_components.ProjectileLauncherComponent;
@@ -51,10 +55,31 @@ fn keyboardDirection(input: *const fusion.Frame) Vec3 {
     return direction;
 }
 
+/// Collider boxes for the current step. Module-level so the large buffer
+/// lives outside the callback's stack.
+var collider_buffer: [collision.max_colliders]collision.Aabb = undefined;
+
+pub fn start(world: fusion.World) !void {
+    try first_person.start(world);
+    try combat.start(world);
+}
+
 pub fn update(world: fusion.World, frame: *const fusion.Frame) !void {
     try keyboardMovementSystem(world, frame);
     try launchProjectilesSystem(world, frame);
-    try projectileSystem(world, frame);
+
+    const colliders = try collision.gather(world, &collider_buffer);
+    const pose = try first_person.update(world, frame, colliders);
+    var targets = try combat.gatherTargets(world);
+    const recoil = try combat.blasterSystem(world, frame, pose, colliders, &targets);
+    try combat.projectileSystem(world, frame, colliders, &targets);
+    try combat.targetSystem(world, frame, pose, &targets);
+    try combat.particleSystem(world, frame);
+    if (pose) |view| try view_model.update(world, view, recoil, combat.hitMarkerFraction(), colliders);
+}
+
+pub fn stop(world: fusion.World) !void {
+    try combat.stop(world);
 }
 
 /// Spawns one projectile per launcher on the step Space goes down.
@@ -84,27 +109,6 @@ pub fn launchProjectilesSystem(world: fusion.World, frame: *const fusion.Frame) 
                 .remaining = launcher.lifetime,
             },
         });
-    }
-}
-
-/// Moves projectiles and removes each one when its lifetime runs out.
-pub fn projectileSystem(world: fusion.World, frame: *const fusion.Frame) !void {
-    var projectiles = try world.query(.{
-        .write = &.{ TransformComponent, ProjectileComponent },
-    });
-
-    while (try projectiles.each()) |row| {
-        var projectile = try row.read(ProjectileComponent);
-        projectile.remaining -= frame.seconds;
-        if (projectile.remaining <= 0) {
-            try row.despawn();
-            continue;
-        }
-        try row.write(ProjectileComponent, projectile);
-
-        var transform = try row.read(TransformComponent);
-        transform.position = transform.position.add(projectile.velocity.scale(frame.seconds));
-        try row.write(TransformComponent, transform);
     }
 }
 
